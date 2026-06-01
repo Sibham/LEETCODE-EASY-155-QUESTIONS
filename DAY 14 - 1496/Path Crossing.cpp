@@ -1,3 +1,6 @@
+//Approach (simply simulate and check visited)
+//T.C : O(n)
+//S.C : O(n)
 class Solution {
 public:
     bool isPathCrossing(string path) {
