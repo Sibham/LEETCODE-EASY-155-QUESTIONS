@@ -52,3 +52,35 @@ public:
     }
 };
 
+//Approach-3 (Using STL+lambda and array as hashmap)
+//T.C : O(n)
+//S.C : O(1)
+class Solution {
+public:
+    bool makeEqual(vector<string>& words) {
+        int n = words.size();
+        int count[26] = {0};
+        
+        for (string &word : words) {
+            for (char &ch : word) {
+                ++count[ch - 'a'];
+            }
+        }
+        
+        auto lambda = [&](int c) {
+                   return c % n == 0;
+        };
+        
+        return all_of(begin(count), end(count), lambda);
+        
+        
+        /*  Or, you can also write like this
+            return all_of(begin(count), end(count), [&](int c) {
+                   return c % n == 0;
+            });
+            
+        */
+        
+    }
+};
+
