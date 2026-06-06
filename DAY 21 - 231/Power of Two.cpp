@@ -22,3 +22,16 @@ public:
         return (n > 0) && ((n & (n - 1)) == 0);
     }
 };
+
+//Approach-2 (__builtin_popcount)
+//T.C : O(1)
+//S.C : O(1)
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        if(n <= 0)
+            return false;
+        
+        return __builtin_popcount(n) == 1;
+    }
+};
