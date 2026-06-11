@@ -45,3 +45,20 @@ public:
         return result;
     }
 };
+
+/************************************************************ JAVA ************************************************************/
+// Approach-1
+// T.C : O(nlogn)
+// S.C : O(1)
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        int n = nums.length;
+
+        for (int i = 0; i < n; i++) {
+            nums[i] = nums[i] * nums[i];
+        }
+
+        Arrays.sort(nums); // O(nlogn)
+        return nums;
+    }
+}
