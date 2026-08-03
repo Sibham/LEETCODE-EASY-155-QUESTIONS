@@ -25,3 +25,31 @@ public:
         return sum(root, parent);
     }
 };
+
+    }
+};
+
+
+//Approach-2 (without parentpointer, only using a flag)
+//T.C : O(n)
+//S.C : O(1) Auxiiliary Space and O(depth of tree) recursion system stack space
+class Solution {
+public:
+    
+    int solve(TreeNode* curr, bool isLeft) {
+        if(!curr) {
+            return 0;
+        }
+        
+        if(!curr->left && !curr->right && isLeft) {
+            return curr->val;
+        }
+        
+        return solve(curr->left, true) + solve(curr->right, false);
+    }
+    
+    int sumOfLeftLeaves(TreeNode* root) {
+        return solve(root, false);
+    }
+};
+
