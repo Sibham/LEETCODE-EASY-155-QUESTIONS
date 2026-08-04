@@ -1,4 +1,4 @@
-/Approach-1 (Recursion + Memoization)
+//Approach-1 (Recursion + Memoization)
 //T.C : Without Memoization - O(3^n) and with Memoization - o(n)
 //S.C : O(n) (But size of t is 38 which is constant hence O(1))
 class Solution {
@@ -22,3 +22,25 @@ public:
         return find(n);
     }
 };
+
+//Approach-2 (Using Bottom Up DP)
+//T.C : O(n)
+//S.C : O(n)  (But size of t is 38 which is constant hence O(1))
+class Solution {
+public:
+    int tribonacci(int n) {
+        int t[38];
+
+        t[0] = 0;
+        t[1] = 1;
+        t[2] = 1;
+        
+        for (int i = 3; i <= 37; i++) {
+            t[i] = t[i-1] + t[i - 2] + t[i - 3];
+        }
+        
+        return t[n];
+    }
+};
+
+
