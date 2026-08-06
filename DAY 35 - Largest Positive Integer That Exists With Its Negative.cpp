@@ -45,3 +45,24 @@ public:
         return -1;
     }
 };
+
+/Approach-3 (Using set)
+//T.C : O(n)
+//S.C : O(n)
+class Solution {
+public:
+    int findMaxK(vector<int>& nums) {
+        unordered_set<int> seen;
+
+        int result = -1;
+
+        for(int num : nums) {
+            if (seen.count(-num)) {
+                result = max(result, abs(num));
+            }
+            seen.insert(num);
+        }
+        
+        return result;
+    }
+};
