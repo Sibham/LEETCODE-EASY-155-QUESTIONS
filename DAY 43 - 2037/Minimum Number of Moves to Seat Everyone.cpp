@@ -36,5 +36,23 @@ public:
     }
 };
 
+//Approach-2 (Using sorting)
+//T.C : O(nlogn)
+//S.C : O(1)
+class Solution {
+public:
+    int minMovesToSeat(vector<int>& seats, vector<int>& students) {
+        sort(begin(seats), end(seats));
+        sort(begin(students), end(students));
 
+        int moves = 0;
+
+        int n = seats.size();
+        for(int i = 0; i < n; i++) {
+            moves += abs(seats[i] - students[i]);
+        }
+
+        return moves;
+    }
+};
 
