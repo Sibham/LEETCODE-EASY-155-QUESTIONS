@@ -12,3 +12,22 @@ public:
         return num;
     }
 };
+
+//Approach-2 (Using XOR mask)
+//T.C : O(log2(num))
+//S.C : O(1)
+class Solution {
+public:
+    int findComplement(int num) {
+        if (num == 0)
+            return 1;
+
+        int number_of_bits = (int)(log2(num)) + 1;
+        
+        // Create a mask with all bits set to 1 that are of the same length as num
+        unsigned int mask = (1U << numBits) - 1; //unsigned taken to avoid integer overflow
+
+        // XOR num with mask to get the complement
+        return num ^ mask;
+    }
+};
